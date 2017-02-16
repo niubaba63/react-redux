@@ -1,4 +1,10 @@
 const hasOwn = Object.prototype.hasOwnProperty
+/**
+ * 浅相等比较
+ * @param a
+ * @param b
+ * @returns {boolean}
+ */
 
 export default function shallowEqual(a, b) {
   if (a === b) return true
