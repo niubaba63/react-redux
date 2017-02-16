@@ -20,6 +20,9 @@ function warnAboutReceivingStore() {
 }
 
 export default class Provider extends Component {
+  //指定数据并要将数据传递下去的父组件要定义 childContextTypes 和 getChildContext() ；
+  // 想要接收到数据的子组件 必须定义 contextTypes 来使用传递过来的 context
+  //context中放入Redux的store，方便子组件获取
   getChildContext() {
     return { store: this.store, storeSubscription: null }
   }
@@ -30,6 +33,7 @@ export default class Provider extends Component {
   }
 
   render() {
+    //返回props.children 中的第一个
     return Children.only(this.props.children)
   }
 }
@@ -49,6 +53,8 @@ Provider.propTypes = {
   store: storeShape.isRequired,
   children: PropTypes.element.isRequired
 }
+
+//指定childContext的数据类型
 Provider.childContextTypes = {
   store: storeShape.isRequired,
   storeSubscription: PropTypes.instanceOf(Subscription)

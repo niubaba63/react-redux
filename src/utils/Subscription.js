@@ -1,7 +1,11 @@
 // encapsulates the subscription logic for connecting a component to the redux store, as
 // well as nesting subscriptions of descendant components, so that we can ensure the
 // ancestor components re-render before descendants
-
+/**
+ * 封装订阅逻辑 用于组件连接 redux store ，以及嵌套订阅的后代组件，以便我们可以确保
+ * 祖先组件在后代之前重绘 re-render
+ *
+ */
 const CLEARED = null
 const nullListeners = { notify() {} }
 

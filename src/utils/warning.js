@@ -1,6 +1,6 @@
 /**
  * Prints a warning in the console if it exists.
- *
+ * 打印一个警告信息在控制台，如果控制台存在
  * @param {String} message The warning message.
  * @returns {void}
  */
