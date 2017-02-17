@@ -3,6 +3,7 @@ import Subscription from '../utils/Subscription'
 import storeShape from '../utils/storeShape'
 import warning from '../utils/warning'
 
+//警告直接修改 store
 let didWarnAboutReceivingStore = false
 function warnAboutReceivingStore() {
   if (didWarnAboutReceivingStore) {
@@ -37,7 +38,7 @@ export default class Provider extends Component {
     return Children.only(this.props.children)
   }
 }
-
+//如果不是生产环境 检查是否直接修改store 如果有给出警告
 if (process.env.NODE_ENV !== 'production') {
   Provider.prototype.componentWillReceiveProps = function (nextProps) {
     const { store } = this
