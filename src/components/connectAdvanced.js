@@ -49,7 +49,7 @@ export default function connectAdvanced(
     selector, otherwise the Connect component will re-render on every state or props change.
   */
   selectorFactory,
-  // options object:
+  // options object: 对象选项
   {
     // the func used to compute this HOC's displayName from the wrapped component's displayName.
     // probably overridden by wrapper functions such as connect()
@@ -74,11 +74,11 @@ export default function connectAdvanced(
 
     // additional options are passed through to the selectorFactory
     ...connectOptions
-  } = {}
+  } = {} //设置参数默认值为{}
 ) {
   const subscriptionKey = storeKey + 'Subscription'
   const version = hotReloadingVersion++
-
+  //设置上下文
   const contextTypes = {
     [storeKey]: storeShape,
     [subscriptionKey]: PropTypes.instanceOf(Subscription),
@@ -86,7 +86,7 @@ export default function connectAdvanced(
   const childContextTypes = {
     [subscriptionKey]: PropTypes.instanceOf(Subscription)
   }
-
+  //返回包装后的组件
   return function wrapWithConnect(WrappedComponent) {
     invariant(
       typeof WrappedComponent == 'function',

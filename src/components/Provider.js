@@ -49,10 +49,10 @@ if (process.env.NODE_ENV !== 'production') {
     }
   }
 }
-
+//propTypes定义
 Provider.propTypes = {
-  store: storeShape.isRequired,
-  children: PropTypes.element.isRequired
+  store: storeShape.isRequired,  // store必须含有storeShape (subscribe, dispatch, getState)
+  children: PropTypes.element.isRequired // children必须是一个React元素
 }
 
 //指定childContext的数据类型
